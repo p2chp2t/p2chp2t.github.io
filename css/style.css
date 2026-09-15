@@ -224,7 +224,7 @@ strong {
   border: 0;
   background: transparent;
   color: var(--muted);
-  font: inherit;
+  font-family: "Segoe UI Symbol", "Arial Unicode MS", sans-serif;
   font-size: 22px;
   line-height: 1;
   cursor: pointer;

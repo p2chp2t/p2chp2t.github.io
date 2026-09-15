@@ -8,7 +8,7 @@ function currentTheme() {
 
 function updateThemeToggle() {
   const isDark = currentTheme() === "dark";
-  themeToggle.querySelector("span").textContent = isDark ? "☀" : "☾";
+  themeToggle.querySelector("span").textContent = isDark ? "☀︎" : "☾";
   themeToggle.setAttribute(
     "aria-label",
     isDark ? "Switch to light mode" : "Switch to dark mode"
