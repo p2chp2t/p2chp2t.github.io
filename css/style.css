@@ -134,17 +134,20 @@ strong {
 /* Layout */
 
 .page-layout {
+  --profile-width: 240px;
+  --page-top: 72px;
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
+  grid-template-columns: var(--profile-width) minmax(0, 1fr);
   align-items: start;
   gap: 80px;
 
   width: min(1080px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 72px 0 32px;
+  padding: var(--page-top) 0 32px;
 }
 
 .main-content {
+  grid-column: 2;
   min-width: 0;
 }
 
@@ -169,9 +172,11 @@ strong {
 /* Profile */
 
 .profile {
-  position: sticky;
-  top: 40px;
-  align-self: start;
+  position: fixed;
+  top: var(--page-top);
+  width: var(--profile-width);
+  max-height: calc(100dvh - var(--page-top) - 32px);
+  overflow-y: auto;
 }
 
 .portrait-link {
@@ -326,10 +331,10 @@ strong {
 
 @media (max-width: 1000px) {
   .page-layout {
-    grid-template-columns: 210px minmax(0, 1fr);
+    --profile-width: 210px;
+    --page-top: 48px;
     gap: 48px;
     width: calc(100% - 64px);
-    padding-top: 48px;
   }
 }
 
@@ -337,15 +342,22 @@ strong {
 
 @media (max-width: 760px) {
   .page-layout {
+    --page-top: 32px;
     grid-template-columns: minmax(0, 1fr);
     gap: 36px;
     width: calc(100% - 40px);
     max-width: 600px;
-    padding-top: 32px;
   }
 
   .profile {
     position: static;
+    width: auto;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .main-content {
+    grid-column: 1;
   }
 
   .portrait {
